@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ÁREA DE SERVICIOS - FÓRMULAS</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header><h1>ÁREA DE SERVICIOS - FÓRMULAS</h1></header>
+
+      <div id="hero">
+        <div class="hero" id="drop">
+          <button class="btn main" type="button">Seleccionar archivo</button>
+        </div>
+      </div>
+      <div class="filebar hidden" id="filebar">
+        <span class="ic">
+          <svg width="30" height="35" viewBox="0 0 48 56" aria-hidden="true">
+            <path d="M6 2h26l14 14v36a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" fill="#fff" stroke="#1e7b3a" stroke-width="2.5" />
+            <path d="M32 2v14h14" fill="none" stroke="#1e7b3a" stroke-width="2.5" />
+            <rect x="11" y="26" width="26" height="20" rx="2" fill="#1e7b3a" />
+            <path d="M17 31l14 10M31 31L17 41" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+          </svg>
+        </span>
+        <div class="nm"><b id="fname"></b><span id="fmeta"></span></div>
+        <button class="btn" id="pick">Cambiar Excel</button>
+      </div>
+      <div class="hint hidden" id="loadMsg" style="margin-top: 10px"></div>
+      <input type="file" id="file" class="hidden" accept=".xlsx,.xlsm,.xlsb,.xls,.xltx,.xltm" />
+
+      <div id="step2" class="sec hidden">
+        <div class="tabs" id="sheetTabs">
+          <button class="tab on" data-k="all"></button>
+          <button class="tab" data-k="with"></button>
+          <button class="tab" data-k="without"></button>
+        </div>
+        <div class="chips" id="chips"></div>
+        <div class="row">
+          <button class="btn main" id="run">Extraer</button>
+          <span class="hint" id="selInfo"></span>
+        </div>
+      </div>
+
+      <div id="step3" class="sec hidden">
+        <div class="tools">
+          <div class="counts" id="counts"></div>
+          <span class="sp"></span>
+          <div class="seg" id="sep" title="Separador">
+            <button data-v=";">;</button><button data-v=",">,</button>
+          </div>
+          <button class="btn" id="copy">Copiar tabla</button>
+        </div>
+        <div class="box">
+          <table>
+            <thead>
+              <tr>
+                <th>Hoja</th>
+                <th>Celda</th>
+                <th>Fórmula</th>
+                <th>Resultado</th>
+                <th>Verificación</th>
+              </tr>
+            </thead>
+            <tbody id="tb"></tbody>
+          </table>
+          <div class="more hidden" id="moreBox"><button class="btn" id="more">Mostrar más</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="md hidden" id="md">
+      <div class="in">
+        <textarea id="mdTxt" readonly></textarea>
+        <div class="row" style="justify-content: flex-end; margin-top: 10px">
+          <button class="btn" id="mdSel">Seleccionar todo</button
+          ><button class="btn main" id="mdClose">Listo</button>
+        </div>
+      </div>
+    </div>
+    <div id="toast"></div>
+
+    <script src="lib/cpexcel.js"></script>
+    <script src="lib/xlsx.js"></script>
+    <script src="lib/hyperformula.full.js"></script>
+    <script src="js/verificar.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
